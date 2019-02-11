@@ -4,7 +4,7 @@ public class Person {
     private String pesel;
     private int age;
 
-    public Person(String firstName, String lastName, String pesel, int age) {
+    public Person(String firstName, String lastName, String pesel, int age) throws NameUndefinedException, IncorrectAgeException {
         if(firstName.length()<3 || firstName.equals(null))
             throw new NameUndefinedException("Imie musi miec wiecej niz 2 znaki");
         this.firstName = firstName;
@@ -21,7 +21,7 @@ public class Person {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws NameUndefinedException {
         if(firstName.length()<3 || firstName.equals(null))
             throw new NameUndefinedException("Imie musi miec wiecej niz 2 znaki");
         this.firstName = firstName;
@@ -31,7 +31,7 @@ public class Person {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws NameUndefinedException {
         if(firstName.length()<3 || firstName.equals(null))
             throw new NameUndefinedException("Nazwisko musi miec wiecej niz 2 znaki");
         this.lastName = lastName;
@@ -49,7 +49,7 @@ public class Person {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws IncorrectAgeException {
         if(age<1)
             throw new IncorrectAgeException("Nieprawidłowy wiek");
         this.age = age;
